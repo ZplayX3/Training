@@ -17,14 +17,14 @@ int	ft_atoi(char *str)
 
 	sign = 0;
 	number = 0;
-	while (*str = ' ' || (*str >= 9 && *str <= 13))
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign = -1;
+		str++;
 	}
-	str++;
 	while ('0' <= *str && *str <= '9')
 	{
 		number = number * 10 + (*str - 48);
