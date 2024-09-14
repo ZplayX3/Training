@@ -13,11 +13,28 @@
 int	count_words(char *str)
 {
 	int	words;
+	int	i;
 	
 	words = 0;
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		if (*str == ' ' && str - 1 != ' ')
+		if ((str[i] == ' ' ||str[i] == '\t') && (str[ - 1] != ' ' || str[i - 1] != '\t')
 			words++;
+		i++;
 	}
+	// dernier mot
+	if (str[i - 1] != ' ' && str[i - 1] != '\t')
+		words++;
+	return (words);
+}
+
+// main à retirer car fonction demandée
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	(void) argc;
+	printf("Nombre de mots : %d\n", count_words(argv[1]));
+	return (0);
 }
